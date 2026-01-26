@@ -1,34 +1,44 @@
 import React, { useState } from "react";
 
-const CategoryIcons = {
-  "Web Development": (
+const CategoryIcons: Record<string, JSX.Element> = {
+  "Machine Learning & NLP": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
       className="w-6 h-6 text-[var(--sec)] opacity-70"
     >
-      <path d="M21 3C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H21ZM20 11H4V19H20V11ZM20 5H4V9H20V5ZM11 6V8H9V6H11ZM7 6V8H5V6H7Z"></path>
+      <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14h-2v-2h2v2zm0-4h-2V6h2v6z" />
     </svg>
   ),
-  "Mobile Development": (
+  "Data Engineering": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
       className="w-6 h-6 text-[var(--sec)] opacity-70"
     >
-      <path d="M7 4V20H17V4H7ZM6 2H18C18.5523 2 19 2.44772 19 3V21C19 21.5523 18.5523 22 18 22H6C5.44772 22 5 21.5523 5 21V3C5 2.44772 5.44772 2 6 2ZM12 17C12.5523 17 13 17.4477 13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17Z"></path>
+      <path d="M3 13h18v2H3v-2zm0-6h12v2H3V7zm0 12h6v2H3v-2z" />
     </svg>
   ),
-  "UI/UX Design & Prototyping": (
+  "Systems & Backend": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
       className="w-6 h-6 text-[var(--sec)] opacity-70"
     >
-      <path d="M5.7646 7.99998L5.46944 7.26944C5.26255 6.75737 5.50995 6.17454 6.02202 5.96765L15.2939 2.22158C15.8059 2.01469 16.3888 2.26209 16.5956 2.77416L22.2147 16.6819C22.4216 17.194 22.1742 17.7768 21.6622 17.9837L12.3903 21.7298C11.8783 21.9367 11.2954 21.6893 11.0885 21.1772L11.0002 20.9586V21H7.00021C6.44792 21 6.00021 20.5523 6.00021 20V19.7303L2.65056 18.377C2.13849 18.1701 1.89109 17.5873 2.09798 17.0752L5.7646 7.99998ZM8.00021 19H10.2089L8.00021 13.5333V19ZM6.00021 12.7558L4.32696 16.8972L6.00021 17.6084V12.7558ZM7.69842 7.44741L12.5683 19.5008L19.9858 16.5039L15.1159 4.45055L7.69842 7.44741ZM10.6766 9.47974C10.1645 9.68663 9.5817 9.43924 9.37481 8.92717C9.16792 8.4151 9.41532 7.83227 9.92739 7.62538C10.4395 7.41849 11.0223 7.66588 11.2292 8.17795C11.4361 8.69002 11.1887 9.27286 10.6766 9.47974Z"></path>
+      <path d="M4 4h16v6H4zM4 14h16v6H4z" />
+    </svg>
+  ),
+  "Tools & Cloud": (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="w-6 h-6 text-[var(--sec)] opacity-70"
+    >
+      <path d="M20 8a6 6 0 10-11.33 2.09A5 5 0 006 15h14a3 3 0 000-6h-0z" />
     </svg>
   ),
 };
@@ -36,20 +46,33 @@ const CategoryIcons = {
 const SkillsList = () => {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
-  const skills = {
-    "Web Development": [
-      "Single Page Applications (SPAs)",
-      "Landing pages and business websites",
-      "Portfolio websites",
+  const skills: Record<string, string[]> = {
+    "Machine Learning & NLP": [
+      "PyTorch, scikit-learn, XGBoost",
+      "NLP: LangChain, OpenAI API, NLTK, RAG",
+      "Model dev: layoutLMv3, fine-tuning, evaluation (PSNR/SSIM)",
     ],
-    "Mobile Development": [
-      "Mobile-friendly web apps",
-      "React Native mobile apps",
+    "Data Engineering": [
+      "Spark, Databricks, Delta Lake, BigQuery, Snowflake",
+      "ETL: Spark & Pandas pipelines, S3, EMR, ThreadPoolExecutor",
+      "Data ops: partitioning, Delta tables, SQL (Postgres, MSSQL)",
     ],
-    "UI/UX Design & Prototyping": [
-      "UI design with Figma & Canva",
-      "UX research & improvements",
-      "Prototyping for websites & mobile apps",
+    "Systems & Backend": [
+      "APIs & Backend: Flask, FastAPI, Express",
+      "Deployment: Cloud Run, Kubernetes, Docker, multi-threaded ETL",
+      "Realtime: async status tracking, JS polling, server-side parsing",
+    ],
+    "Tools & Cloud": [
+      "AWS: EMR, EC2, S3, RDS",
+      "Azure: Databricks, Data Lake, Fabric · GCP: BigQuery, Cloud Run",
+      "Tools: Git, Docker, Kubernetes, Power BI, MongoDB, PostgreSQL, Tailwind",
+    ],
+    Experience: [
+      "Software Developer — Ford Motor Company (Sep 2025–Dec 2025): Built Flask + BigQuery + Cloud Run dashboard; automated stability reporting and engineered multi-threaded ETL for 50k+ crash logs.",
+      "Data Analyst — Ontario Ministry (May 2025–Aug 2025): Automated Databricks & Fabric pipelines; built NLP name-matching toolkit and unified 3TB+ datasets into Delta Lake.",
+      "Data Eng Intern — HiLabs (Sep 2024–Dec 2024): Built ETL integrating Snowflake/S3/Postgres with Kubernetes, Spark & EMR; document processing with LayoutLMv3.",
+      "Full Stack Developer — Bio Field Power (Jan 2024–Apr 2024): Built Next.js + Express platform with MongoDB and auth.",
+      "Software Developer — Dataline Advertisers (May 2023–Aug 2023): Built mobile web app with Vue, TypeScript, Tailwind and payment integration.",
     ],
   };
 
