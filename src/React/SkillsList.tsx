@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import type { ReactNode } from "react";
 
-const CategoryIcons: Record<string, JSX.Element> = {
+const CategoryIcons: Record<string, React.ReactNode> = {
   "Machine Learning & NLP": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +41,10 @@ const CategoryIcons: Record<string, JSX.Element> = {
     >
       <path d="M20 8a6 6 0 10-11.33 2.09A5 5 0 006 15h14a3 3 0 000-6h-0z" />
     </svg>
-  ),
+  )
+//   "Experience": (
+//   <svg ...>...</svg>
+// )
 };
 
 const SkillsList = () => {
